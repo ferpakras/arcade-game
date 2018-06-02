@@ -28,7 +28,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x <= 909) {  // 909 is the canvas width. It correspods to 9 columns (or game blocks)
         this.x = this.x + this.speed * dt;
     } else {
-        this.x = -2;
+        this.x = -10; // This one start the bugs cycle again
     }
 };
 
@@ -121,8 +121,9 @@ const allEnemies = [];
 /* Fill the [] with the initial enemy positions
 * This is an IIFE Function. It means that it is called 
 * immediately after defined. Class 2.6
+* The value between () is the initial X and Y position for the enemies
 */
-(function displayEnemies() {
+(function pushEnemies() {
     allEnemies.push(new Enemy(-50, 50));
     allEnemies.push(new Enemy(-50, 140));
     allEnemies.push(new Enemy(-50, 230));
